@@ -3,7 +3,7 @@ const difficulty = document.getElementById('difficulty');
 const howMinute = document.getElementById('howMinute');
 const difficultyInputs = document.querySelectorAll('input[name="difficulty"]');
 const exerciseTimeInputs = document.querySelectorAll('input[name="exerciseTime"]');
-
+const result = document.querySelector('.result');
 
 // 選択肢の出し分け
 purposeRadio.forEach(purposeElement => {
@@ -44,6 +44,7 @@ function renderSequence(arrayPose) {
 formMenu.addEventListener('submit', (e) => {
     e.preventDefault();
     poseBox.innerHTML = "";
+    result.style.display = "block";
 
     // 太陽礼拝1
     if (formMenu.purpose.value === 'SuryaNamaska_1') {
