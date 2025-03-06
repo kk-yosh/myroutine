@@ -1,16 +1,17 @@
 @charset "utf-8";
-@import url(reset.css);
+@use "reset";
 :root {
     --fontColor: #000;
     --bg01: #000;
     --bg02: #fff;
+    --bg03: tomato;
     --hover: #ccc;
     --mg-s: 10px;
 }
 
-$pc: 796px;
-$sp: 420px;
-
+// メディアクエリー
+$pc: 768px;
+$sp: 768px;
 
 @mixin pc {
     @media screen and (min-width: ($pc)) {
@@ -21,6 +22,19 @@ $sp: 420px;
     @media screen and (min-width: ($sp)) {
         @content;
     }
+}
+
+// ボタン
+@mixin btn($bg-color,$font-color) {
+    display: block;
+    margin: 0 auto;
+    padding: .5em 1em;
+    box-sizing: border-box;
+    font-size: 1.8rem;
+    background: var($bg-color);
+    color: var($font-color);
+    border: solid 1px var($font-color);
+    cursor: pointer;
 }
 /*************************************************
 **************************************************/
@@ -46,9 +60,9 @@ body {
     box-sizing: border-box;
 }
 
-.section {
+section {
     max-width: 768px;
-    margin: 80px 3%;
+    margin: 40px 3%;
 }
 
 h1 {
@@ -59,7 +73,7 @@ h1 {
 }
 h2 {
     font-size: 2rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2rem;
 }
 .text {
     &--explain {
@@ -100,15 +114,7 @@ h2 {
     }
 
     &--submit {
-        display: block;
-        margin: 0 auto;
-        padding: .5em 1em;
-        box-sizing: border-box;
-        font-size: 1.8rem;
-        background: var(--bg01);
-        color: var(--bg02);
-        border: solid 1px var(--fontColor);
-        cursor: pointer;
+        @include btn(--bg01,--bg02);
         &:hover {
             opacity: .6;
         }
@@ -120,11 +126,20 @@ h2 {
 }
 
 .result {
+    display: none;
     h2 {
         text-align: center;
+        font-weight: bold;
     }
     &__pose-box {
         text-align: center;
+    }
+    &__reset-btn {
+        @include btn(--bg01,--bg02);
+        margin-bottom: 1em;
+        &:hover {
+            opacity: .6;
+        }
     }
     &__pose {
         position: relative;
@@ -184,8 +199,6 @@ h2 {
         content: none;
     }
 }
-
-
 
 @media screen and (min-width: ($pc)) {
     .radio {
