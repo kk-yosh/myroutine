@@ -1,8 +1,108 @@
-@import url(reset.css);
+@font-face {
+  font-display: swap;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, .footer_lower, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, .footer_lower, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+}
+
+:focus {
+  outline: none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, select {
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  border-radius: 0;
+}
+
+input[type=submit] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+textarea {
+  resize: none;
+  box-sizing: border-box;
+}
+
 :root {
   --fontColor: #000;
   --bg01: #000;
   --bg02: #fff;
+  --bg03: tomato;
   --hover: #ccc;
   --mg-s: 10px;
 }
@@ -31,9 +131,9 @@ body {
   box-sizing: border-box;
 }
 
-.section {
+section {
   max-width: 768px;
-  margin: 40px 3% 80px;
+  margin: 40px 3%;
 }
 
 h1 {
@@ -91,7 +191,7 @@ h2 {
   font-size: 1.8rem;
   background: var(--bg01);
   color: var(--bg02);
-  border: solid 1px var(--fontColor);
+  border: solid 1px var(--bg02);
   cursor: pointer;
 }
 .input--submit:hover {
@@ -111,6 +211,21 @@ h2 {
 }
 .result__pose-box {
   text-align: center;
+}
+.result__reset-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  font-size: 1.8rem;
+  background: var(--bg01);
+  color: var(--bg02);
+  border: solid 1px var(--bg02);
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+.result__reset-btn:hover {
+  opacity: 0.6;
 }
 .result__pose {
   position: relative;
@@ -170,7 +285,7 @@ h2 {
   content: none;
 }
 
-@media screen and (min-width: 796px) {
+@media screen and (min-width: 768px) {
   .radio__wrap {
     display: flex;
     flex-wrap: wrap;
