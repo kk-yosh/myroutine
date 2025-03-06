@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>ヨガのメニュー</title>
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- 選択画面 -->
+<div class="wrap" id="pose_box">
+    <h1>今日のヨガ何する？</h1>
+
+    <section class="section">
+        <form class="form" id="form_menu">
+            <p class="text text--explain">選択肢を選んで下さい</p>
+
+            <div class="form__item">
+                <h2>目的</h2>
+                <div class="radio__wrap" id="purpose">
+                    <div>
+                        <input class="input--radio" type="radio" name="purpose" id="purpose_1" value="リラクゼーション" required>
+                        <label class="form__choice" for="purpose_1">リラクゼーション</label>
+                    </div>
+                    <div>
+                        <input class="input--radio" type="radio" name="purpose" id="purpose_2" value="筋トレあり">
+                        <label class="form__choice" for="purpose_2">筋トレあり</label>
+                    </div>
+                    <!-- <div>
+                        <input class="input--radio" type="radio" name="purpose" id="purpose_3" value="バランスよく">
+                        <label class="form__choice" for="purpose_3">バランスよく</label>
+                    </div> -->
+                    <div>
+                        <input class="input--radio" type="radio" name="purpose" id="SuryaNamaska_1" value="SuryaNamaska_1">
+                        <label class="form__choice" for="SuryaNamaska_1">太陽礼拝1</label>
+                    </div>
+                    <div>
+                        <input class="input--radio" type="radio" name="purpose" id="SuryaNamaska_2" value="SuryaNamaska_2">
+                        <label class="form__choice" for="SuryaNamaska_2">太陽礼拝2</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__item" id="difficulty">
+                <h2>難易度</h2>
+                <div class="radio__wrap">
+                    <div>
+                        <input class="input--radio" type="radio" name="difficulty" id="difficulty_1" value="初心者">
+                        <label class="form__choice" for="difficulty_1">初心者</label>
+                    </div>
+                    <div>
+                        <input class="input--radio" type="radio" name="difficulty" id="difficulty_2" value="慣れた人">
+                        <label class="form__choice" for="difficulty_2">慣れた人</label>
+                    </div>
+                    <!-- <div>
+                        <input class="input--radio" type="radio" name="difficulty" id="difficulty_3" value="上級者">
+                        <label class="form__choice" for="difficulty_3">上級者</label>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="form__item" id="howMinute">
+                <h2>時間</h2>
+                <div class="radio__wrap">
+                    <div>
+                        <input class="input--radio" type="radio" name="exerciseTime" id="time_30" value="30分">
+                        <label class="form__choice" for="time_30">30分</label>
+                    </div>
+                    <div>
+                        <input class="input--radio" type="radio" name="exerciseTime" id="time_60" value="60分">
+                        <label class="form__choice" for="time_60">60分</label>
+                    </div>
+                </div>
+            </div>
+
+            <input class="input--submit" type="submit" value="メニューを見る">
+        </form>
+    </section>
+
+    <section class="result">
+        <h2>こんなメニューはいかが？</h2>
+        <div class="result__pose-box">
+        </div>
+    </section>
+</div>
+
+    <!-- JS -->
+    <script src="js/yogaData.js"></script>
+    <script src="js/yoga.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
