@@ -102,6 +102,9 @@ h2 {
   display: none;
 }
 
+.result h2 {
+  text-align: center;
+}
 .result__pose-box {
   text-align: center;
 }
