@@ -97,3 +97,10 @@ formMenu.addEventListener('submit', (e) => {
     // console.log(standMuscle3pose);
 // シークエンス表示ここまで
 });
+
+// 結果のリセットボタン
+const resetBtn = document.querySelector('.result__reset-btn');
+
+resetBtn.addEventListener('click', () => {
+    poseBox.innerHTML = "";
+});
