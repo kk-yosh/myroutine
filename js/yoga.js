@@ -66,14 +66,13 @@ function lying(array, sliceNum) {
     return sortTiming(newArray);
 }
 
-function levelFilter(array, level) {
+function levelFilter(array, level, isExclude) {
     return array.filter(item => isExclude ? item.difficulty !== level : item.difficulty === level);
 }
 
-function purposeFilter(array, purpose) {
+function purposeFilter(array, purpose, isExclude) {
     return array.filter(arrayItems => isExclude ? arrayItems.purpose !== purpose : arrayItems.purpose === purpose)
 }
-
 
 
 // ダウンドッグ
