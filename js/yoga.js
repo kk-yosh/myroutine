@@ -1,4 +1,4 @@
-import Default from "./yogaData.js";
+import yogaPoses from "./yogaData";
 console.log(yogaPoses);
 // 太陽礼拝1
 const suryaNamaskar1IDs = [
