@@ -1,207 +1,371 @@
-// 太陽礼拝1
-const suryaNamaskar1IDs = [
-    "tadasana", "urdhva_hastasana", "uttanasana", "ardha_uttanasana",
-    "plank", "chaturanga_dandasana", "updog",
-    "downdog", "ardha_uttanasana", "uttanasana",
-    "urdhva_hastasana", "tadasana"
-];
-// 太陽礼拝2
-const suryaNamaskar2IDs = [
-    "tadasana",
-    "utkatasana", 
-    "uttanasana", 
-    "ardha_uttanasana",
-    "plank", 
-    "chaturanga_dandasana", 
-    "updog",
-    "downdog", 
-    "virabhadrasana_1_right", 
-    "downdog", 
-    "virabhadrasana_1_left", 
-    "downdog", 
-    "ardha_uttanasana", 
-    "uttanasana",
-    "urdhva_hastasana", 
-    "tadasana"
-];
 
-// 太陽礼拝
-function makeSequence(IDs) {
-    return IDs.map((item, index) => {
-        const pose = yogaPoses.find(p => p.id === item);
-        return pose ? { ...pose, priority: index + 1 } : null;
-    }).filter(p => p !== null);
-}
-const suryaNamaskar1 = makeSequence(suryaNamaskar1IDs);
-const suryaNamaskar2 = makeSequence(suryaNamaskar2IDs);
+const yogaPoses = [
+    // sitting
+    {
+        "poseNameJP": "スカアーサナ（あぐら）",
+        "poseNameSanskrit": "スカアーサナ",
+        "difficulty": "easy",
+        "purpose": "basic",
+        "timing": 1,
+        "position": "sitting",
+        "id": "sukasana"
+    },
+    {
+        "poseNameJP": "合蹠のポーズ",
+        "poseNameSanskrit": "バッタコーナアーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "timing": 2,
+        "position": "sitting",
+        "id": "baddha_konasana"
+    },
+    {
+        "poseNameJP": "半分の魚の王のポーズ",
+        "poseNameSanskrit": "アルダマッツェンドラアーサナ",
+        "difficulty": "easy",
+        "purpose": "twist",
+        "timing": 3,
+        "position": "sitting",
+        "id": "ardha_matsyendrasana"
+    },
+    {
+        "poseNameJP": "座った前屈のポーズ",
+        "poseNameSanskrit": "パスチモッターナーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "timing": 4,
+        "position": "sitting",
+        "id": "paschimottanasana"
+    },
+    {
+        "poseNameJP": "賢者のポーズC",
+        "poseNameSanskrit": "マリーチアーサナC",
+        "difficulty": "easy",
+        "purpose": "twist",
+        "timing": 5,
+        "position": "sitting",
+        "id": "marichyasana"
+    },
+    {
+        "poseNameJP": "船のポーズ",
+        "poseNameSanskrit": "ナーヴァアーサナ",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "sitting",
+        "timing": 6,
+        "id": "navasana"
+    },
+    {
+        "poseNameJP": "牛の顔のポーズ",
+        "poseNameSanskrit": "ゴムカーサナ",
+        "difficulty": "hard",
+        "purpose": "stretch",
+        "position": "sitting",
+        "timing": 7,
+        "id": "gomukhasana"
+    },
 
-//選択肢によるポーズ絞り込み用 関数
-function sortTiming(array) {
-    return array.sort((a, b) =>a.timing - b.timing);
-}
+    // prone
+    {
+        "poseNameJP": "キャット＆カウ",
+        "poseNameSanskrit": "マルジャリアーサナ＆ビティラーサナ",
+        "difficulty": "easy",
+        "purpose": "warmup",
+        "timing": 1,
+        "position": "prone",
+        "id": "cat_cow"
+    },
+    {
+        "poseNameJP": "トラのポーズ",
+        "poseNameSanskrit": "ヴィヤガラーサナ",
+        "difficulty": "easy",
+        "purpose": "muscleTraining",
+        "timing": 2,
+        "position": "prone",
+        "id": "tigerpose"
+    },
+    {
+        "poseNameJP": "板のポーズ",
+        "poseNameSanskrit": "プランク",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "prone",
+        "timing": 3,
+        "id": "plank"
+    },
+    {
+        "poseNameJP": "バッタのポーズ",
+        "poseNameSanskrit": "シャラバーサナ",
+        "difficulty": "medium",
+        "purpose": "strength",
+        "timing": 4,
+        "position": "prone",
+        "id": "salabhasana"
+    },
+    { 
+        "poseNameJP": "コブラのポーズ",
+        "poseNameSanskrit": "ブジャンガアーサナ",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "prone",
+        "timing": 5,
+        "id": "cobra" 
+    },
+    {
+        "poseNameJP": "アップドッグ",
+        "poseNameSanskrit": "ウルドヴァムカシュヴァーナーサナ",
+        "difficulty": "medium",
+        "purpose": "stretch",
+        "position": "prone",
+        "timing": 6,
+        "id": "updog"
+    },
+    {
+        "poseNameJP": "四肢で支える杖のポーズ",
+        "poseNameSanskrit": "チャトランガダンダアーサナ",
+        "difficulty": "hard",
+        "isSuryaNamaskar" : true, 
+        "id": "chaturanga"
+    },
+    // standing
+    {
+        "poseNameJP": "山のポーズ",
+        "poseNameSanskrit": "タダアーサナ",
+        "difficulty": "easy",
+        "purpose": "basic",
+        "timing": 1,
+        "position": "standing",
+        "id": "tadasana"
+    },
 
-function sitting(array, sliceNum) {
-    let newArray = array.filter(poses => poses.position === "sitting")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, sliceNum);
-    return sortTiming(newArray);
-}
-function prone(array, sliceNum) {
-    let newArray = array.filter(poses => poses.position === "prone")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, sliceNum);
-    return sortTiming(newArray);
-}
-function standing(array, sliceNum) {
-    let newArray = array.filter(poses => poses.position === "standing")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, sliceNum);
-    return sortTiming(newArray);
-}
-function lying(array, sliceNum) {
-    let newArray = array.filter(poses => poses.position === "lying")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, sliceNum);
-    return sortTiming(newArray);
-}
+    {
+        "poseNameJP": "立位前屈のポーズ",
+        "poseNameSanskrit": "ウッターナーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "position": "standing",
+        "timing": 2,
+        "id": "uttanasana"
+    },
+    {
+        "poseNameJP": "椅子のポーズ",
+        "poseNameSanskrit": "ウトゥカタアーサナ",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "standing",
+        "timing": 3,
+        "id": "utkatasana"
+    },
+    {
+        "poseNameJP": "手を上にあげるポーズ",
+        "poseNameSanskrit": "ウルドヴァハスタアーサナ",
+        "difficulty": "easy",
+        "isSuryaNamaskar" : true, 
+        "id": "urdhva_hastasana"
+    },
+    {
+        "poseNameJP": "半分の立位前屈のポーズ",
+        "poseNameSanskrit": "アルダウッターナーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "position": "standing",
+        "timing": "early",
+        "id": "ardha_uttanasana"
+    },
+    {
+        "poseNameJP": "木のポーズ",
+        "poseNameSanskrit": "ヴリクシャーサナ",
+        "difficulty": "easy",
+        "purpose": "balance",
+        "position": "standing",
+        "timing": 4,
+        "id": "vrksasana"
+    },
+    {
+        "poseNameJP": "片脚を伸ばすポーズ",
+        "poseNameSanskrit": "ウッティタハスタパーダングシュターサナ",
+        "difficulty": "hard",
+        "purpose": "balance",
+        "position": "standing",
+        "timing": 5,
+        "id": "utthita_hasta_padangusthasana"
+    },
+    {
+        "poseNameJP": "三角のポーズ",
+        "poseNameSanskrit": "トリコナーサナ",
+        "difficulty": "medium",
+        "purpose": "stretch",
+        "position": "standing",
+        "timing": 6,
+        "id": "trikonasana"
+    },
+    {
+        "poseNameJP": "パールシュヴァコナーサナ",
+        "poseNameSanskrit": "パールシュヴァコナーサナ",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "standing",
+        "timing": 7,
+        "id": "parsvakonasana"
+    },
+    {
+        "poseNameJP": "戦士のポーズ1",
+        "poseNameSanskrit": "ヴィラバドラアーサナI",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "standing",
+        "timing": 8,
+        "id": "virabhadrasana_1"
+    },    
+    {
+        "poseNameJP": "戦士のポーズ1(右足前)",
+        "poseNameSanskrit": "ヴィラバドラアーサナI",
+        "difficulty": "muscleTraining",
+        "isSuryaNamaskar" : true,
+        "id": "virabhadrasana_1_right"
+    },    
+    {
+        "poseNameJP": "戦士のポーズ1(左足前)",
+        "poseNameSanskrit": "ヴィラバドラアーサナI",
+        "difficulty": "medium",
+        "isSuryaNamaskar" : true,
+        "id": "virabhadrasana_1_left"
+    },    
+    {
+        "poseNameJP": "戦士のポーズ2",
+        "poseNameSanskrit": "ヴィラバドラアーサナ2",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "position": "standing",
+        "timing": 9,
+        "id": "virabhadrasana_2"
+    },
+    {
+        "poseNameJP": "戦士のポーズ3",
+        "poseNameSanskrit": "ヴィラバドラアーサナ3",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "timing": 10,
+        "position": "standing",
+        "id": "virabhadrasana_3"
+    },
+    {
+        "poseNameJP": "踊り子のポーズ",
+        "poseNameSanskrit": "ナタラージャアーサナ",
+        "difficulty": "hard",
+        "purpose": "balance",
+        "position": "standing",
+        "timing": 11,
+        "id": "natarajasana"
+    },
+    {
+        "poseNameJP": "半月のポーズ",
+        "poseNameSanskrit": "アルダチャンドラアーサナ",
+        "difficulty": "hard",
+        "purpose": "balance",
+        "position": "standing",
+        "timing": 12,
+        "id": "ardha_chandrasana"
+    },
+    {
+        "poseNameJP": "三日月のポーズ",
+        "poseNameSanskrit": "アンジャネヤーサナ",
+        "difficulty": "medium",
+        "purpose": "balance",
+        "position": "standing",
+        "timing": 13,
+        "id": "anjaneyasana"
+    },
+    {
+        "poseNameJP": "鷲のポーズ",
+        "poseNameSanskrit": "ガルーダアーサナ",
+        "difficulty": "hard",
+        "purpose": "balance",
+        "position": "standing",
+        "timing": 14,
+        "id": "garudasana"
+    },
+    {
+        "poseNameJP": "ダウンドッグ",
+        "poseNameSanskrit": "アドムカシュヴァーナーサナ",
+        "difficulty": "medium",
+        "purpose": "stretch",
+        "position": "inverted",
+        "timing": 1,
+        "id": "downdog"
+    },
+    {
+        "poseNameJP": "橋のポーズ",
+        "poseNameSanskrit": "セツバンダアーサナ",
+        "difficulty": "medium",
+        "purpose": "muscleTraining",
+        "timing": 1,
+        "position": "lying",
+        "id": "setu_bandhasana"
+    },
+    {
+        "poseNameJP": "魚のポーズ",
+        "poseNameSanskrit": "マツヤーサナ",
+        "difficulty": "medium",
+        "purpose": "chestOpening",
+        "timing": 2,
+        "position": "lying",
+        "id": "matsyasana"
+    },
+    {
+        "poseNameJP": "ハラアーサナ",
+        "poseNameSanskrit": "ハラアーサナ",
+        "difficulty": "hard",
+        "purpose": "stretch",
+        "position": "lying",
+        "timing": 3,
+        "id": "halasana"
+    },
+    {
+        "poseNameJP": "ワニのポーズ",
+        "poseNameSanskrit": "ジャタラパリヴァルタナーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "position": "lying",
+        "timing": 4,
+        "id": "jathara_parivartanasana"
+    },
+    {
+        "poseNameJP": "ハッピーベイビーのポーズ",
+        "poseNameSanskrit": "アーナンダバラーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "position": "lying",
+        "timing": 5,
+        "id": "ananda_balasana"
+    },
+    {
+        "poseNameJP": "赤ちゃんのポーズ",
+        "poseNameSanskrit": "シュシラーサナ",
+        "difficulty": "easy",
+        "purpose": "stretch",
+        "position": "lying",
+        "timing": 6,
+        "id": "shishuasana"
+    },
+    {
+        "poseNameJP": "チャイルドポーズ",
+        "poseNameSanskrit": "バラアーサナ",
+        "difficulty": "break",
+        "purpose": "break",
+        "position": "break",
+        "timing": "break",
+        "id": "balasana"
+    },
+    {
+        "poseNameJP": "屍のポーズ",
+        "poseNameSanskrit": "シャバアーサナ",
+        "difficulty": "finish",
+        "purpose": "finish",
+        "position": "finish",
+        "timing": "finish",
+        "id": "savasana"
+    }
+]
 
-function levelFilter(array, level) {
-    return array.filter(item => isExclude ? item.difficulty !== level : item.difficulty === level);
-}
-
-function purposeFilter(array, purpose) {
-    return array.filter(arrayItems => isExclude ? arrayItems.purpose !== purpose : arrayItems.purpose === purpose)
-}
-
-
-
-// ダウンドッグ
-const downdog = yogaPoses.filter(poses => poses.id === "downdog");
-// チャイルドポーズ
-const balasana = yogaPoses.filter(poses => poses.id === "balasana");
-// シャバアーサナ
-const savasana = yogaPoses.filter(poses => poses.id === "savasana");
-
-// データ加工
-// 太陽礼拝用ポーズ除外
-const expectSuryaNamaskar = yogaPoses.filter(pose => !pose.isSuryaNamaskar);
-
-// 上級ポーズ除外 easy medium
-const expectHard = levelFilter(expectSuryaNamaskar, 'hard');
-// easyポーズのみ
-const easyPose = levelFilter(expectSuryaNamaskar, 'easy',false);
-// 中級ポーズのみ
-const mediumPose = levelFilter(expectSuryaNamaskar, 'medium',false);
-// 上級ポーズのみ
-const hardPose = levelFilter(expectSuryaNamaskar, 'hard',false);
-
-
-// 上級ポーズと筋トレポーズ除外
-const expectHardMuscle = purposeFilter(expectHard, 'muscleTraining');
-
-// ストレッチ 全レベル
-const stretchPose = purposeFilter(expectSuryaNamaskar, 'stretch',false);
-
-// ストレッチ　ハード無し 
-const expectHardStretch = levelFilter(stretchPose, 'hard');
-
-
-//リラクゼーション 30分 初心者
-// 難易度 easy middle
-// 座位3→寝る3→シャバ1 合計7ポーズ
-let sittingRelux2pose = sitting(expectHardMuscle, 2);
-let lyingRelux2pose = lying(expectHardMuscle, 2);
-
-const relaxBeginner30 = sittingRelux2pose.concat(lyingRelux2pose, savasana);
-
-//リラクゼーション 60分 初心者
-// 難易度 easy middle
-// 座位3→うつ伏せ2→チャイルド→寝る3→シャバ 合計10ポーズ
-let sittingRelux3pose = sitting(expectHardMuscle, 3);
-let proneRelux2pose = prone(expectHardMuscle, 2);
-let lying3pose = lying(expectHardMuscle, 3);
-
-const relaxBeginner60 = sittingRelux3pose.concat(proneRelux2pose, balasana, lying3pose, savasana);
-
-//リラクゼーション 30分 慣れた人
-// 難易度 easy middle
-// 座位2→うつ伏せ2→寝る2→シャバ1 合計7ポーズ
-const relaxMedium30 = sittingRelux2pose.concat(proneRelux2pose, lyingRelux2pose, savasana);
-
-//リラクゼーション 60分 慣れた人
-// 難易度 easy middle
-// 座位4→うつ伏せ2→チャイルド→寝る4→シャバ 合計12ポーズ
-let sitting4pose = sitting(expectHardMuscle, 4);
-let lying4pose = lying(expectHardMuscle, 4);
-
-const relaxMedium60 = sitting4pose.concat(proneRelux2pose, balasana,lying4pose, savasana);
-
-
-// 筋トレあり 30分 初心者
-// 難易度 easy middle
-// 座位2（ストレッチ）→ダウンドッグ→立つ3→寝る2（ストレッチ）→シャバ1 合計9ポーズ
-
-// ストレッチ座位2ポーズ
-let sittingMuscle2pose = sitting(stretchPose, 2);
-// easy立位3つ
-let standMuscle3pose = standing(expectHard,3);
-// 難しくない仰向け3つ
-let lyingMuscle2pose = lying(expectHardStretch, 2);
-
-const Musclebeginner30 = sittingMuscle2pose.concat(downdog, standMuscle3pose, lyingMuscle2pose, savasana);
-
-// 筋トレあり 60分 初心者
-// 難易度 easy middle
-// 座位3→うつ伏せ2→ダウンドッグ→チャイルド→立つ3→寝る2→シャバ1 合計13ポーズ
-
-// easy座位3つ
-let sittingMuscle3pose = sitting(expectHard, 3);
-// easyうつぶせ3つ
-let proneMuscle2pose = prone(expectHard, 2);
-
-
-const Musclebeginner60 = sittingMuscle3pose.concat(proneMuscle2pose, downdog, balasana, standMuscle3pose, lyingMuscle2pose, savasana);
-
-
-// 筋トレあり 30分 慣れた人
-// 難易度 easy middle hard
-// 座位2→うつ伏せ2→ダウンドッグ→立つ2→寝る2→シャバ1 合計11ポーズ
-
-// 全座位ポーズから2つ
-let sittingMuscleAlllevel2pose = sitting(expectSuryaNamaskar, 2);
-
-// 全うつ伏せポーズから2つ
-let proneMuscleAlllevel2pose = prone(expectSuryaNamaskar, 2);
-
-// 全立ちポーズから2つ
-let standMuscleAlllevel2pose = standing(expectSuryaNamaskar, 2);
-
-// 全仰向けポーズから2つ
-let lyingMuscleAlllevel2pose = lying(expectSuryaNamaskar, 2);
-
-
-const MuscleMedium30 = sittingMuscleAlllevel2pose.concat(proneMuscleAlllevel2pose, downdog,  standMuscleAlllevel2pose, lyingMuscleAlllevel2pose, savasana);
-
-
-// 筋トレあり 60分 慣れた人
-// 難易度 easy middle hard
-// 座位2→うつ伏せ2→ダウンドッグ→チャイルド→立つ2(medium)→立つ2(hard)→寝る2→シャバ1 合計13ポーズ
-
-// 全部の座位から3ポーズ
-let sittingMuscleAlllevel3pose = sitting(expectSuryaNamaskar, 3);
-sortTiming(sittingMuscleAlllevel3pose);
-
-// 全うつ伏せから2つ（作成済み）
-
-// 立ちポーズ 中級から2つ
-let standMuscleMedium2pose = standing(mediumPose, 2);
-sortTiming(standMuscleMedium2pose);
-
-// 立ちポーズ 上級から2つ
-let standMuscleHard2pose = standing(hardPose, 2);
-sortTiming(standMuscleHard2pose);
-
-// 全仰向けポーズから2つ（作成済み）
-
-const MuscleMedium60 = sittingMuscleAlllevel3pose.concat(proneMuscleAlllevel2pose, downdog,  balasana, standMuscleMedium2pose, standMuscleHard2pose, lyingMuscleAlllevel2pose, savasana);
-
+export default yogaPoses;
