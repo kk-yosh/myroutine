@@ -206,3 +206,15 @@ sortTiming(standMuscleHard2pose);
 
 const MuscleMedium60 = sittingMuscleAlllevel3pose.concat(proneMuscleAlllevel2pose, downdog,  balasana, standMuscleMedium2pose, standMuscleHard2pose, lyingMuscleAlllevel2pose, savasana);
 
+export {
+    suryaNamaskar1,
+    suryaNamaskar2,
+    relaxBeginner30,
+    relaxBeginner60,
+    relaxMedium30,
+    relaxMedium60,
+    Musclebeginner30,
+    Musclebeginner60,
+    MuscleMedium30,
+    MuscleMedium60
+}
