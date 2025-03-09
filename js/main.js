@@ -1,3 +1,13 @@
+import { suryaNamaskar1,
+    suryaNamaskar2,
+    relaxBeginner30,
+    relaxBeginner60,
+    relaxMedium30,
+    relaxMedium60,
+    Musclebeginner30,
+    Musclebeginner60,
+    MuscleMedium30,
+    MuscleMedium60 } from "./yoga.js";
 const purposeRadio = document.querySelectorAll('input[name="purpose"]');
 const difficulty = document.getElementById('difficulty');
 const howMinute = document.getElementById('howMinute');
