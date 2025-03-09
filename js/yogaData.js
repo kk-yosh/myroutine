@@ -367,3 +367,5 @@ const yogaPoses = [
         "id": "savasana"
     }
 ]
+
+export default yogaPoses;
