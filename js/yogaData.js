@@ -1,5 +1,4 @@
-
-export const yogaPoses = [
+const yogaPoses = [
     // sitting
     {
         "poseNameJP": "スカアーサナ（あぐら）",
@@ -367,3 +366,4 @@ export const yogaPoses = [
         "id": "savasana"
     }
 ]
+export default yogaPoses;
