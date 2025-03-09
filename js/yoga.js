@@ -65,11 +65,11 @@ function lying(array, sliceNum) {
     return sortTiming(newArray);
 }
 
-function levelFilter(array, level, isExclude = true) {
+function levelFilter(array, level) {
     return array.filter(item => isExclude ? item.difficulty !== level : item.difficulty === level);
 }
 
-function purposeFilter(array, purpose, isExclude = true) {
+function purposeFilter(array, purpose) {
     return array.filter(arrayItems => isExclude ? arrayItems.purpose !== purpose : arrayItems.purpose === purpose)
 }
 
@@ -85,26 +85,25 @@ const savasana = yogaPoses.filter(poses => poses.id === "savasana");
 // データ加工
 // 太陽礼拝用ポーズ除外
 const expectSuryaNamaskar = yogaPoses.filter(pose => !pose.isSuryaNamaskar);
-// const expectSuryaNamaskar = purposeFilter(yogaPoses, 'suryaNamaskar');
 
 // 上級ポーズ除外 easy medium
-const expectHard = levelFilter(expectSuryaNamaskar, 'hard', isExclude = true);
-// やりやすいポーズのみ
-const easyPose = levelFilter(expectSuryaNamaskar, 'easy', isExclude = false);
+const expectHard = levelFilter(expectSuryaNamaskar, 'hard');
+// easyポーズのみ
+const easyPose = levelFilter(expectSuryaNamaskar, 'easy',false);
 // 中級ポーズのみ
-const mediumPose = levelFilter(expectSuryaNamaskar, 'medium', isExclude = false);
+const mediumPose = levelFilter(expectSuryaNamaskar, 'medium',false);
 // 上級ポーズのみ
-const hardPose = levelFilter(expectSuryaNamaskar, 'hard', isExclude = false);
+const hardPose = levelFilter(expectSuryaNamaskar, 'hard',false);
 
 
 // 上級ポーズと筋トレポーズ除外
-const expectHardMuscle = purposeFilter(expectHard, 'muscleTraining', isExclude = true);
+const expectHardMuscle = purposeFilter(expectHard, 'muscleTraining');
 
 // ストレッチ 全レベル
-const stretchPose = purposeFilter(expectSuryaNamaskar, 'stretch', isExclude = false);
+const stretchPose = purposeFilter(expectSuryaNamaskar, 'stretch',false);
 
 // ストレッチ　ハード無し 
-const expectHardStretch = levelFilter(stretchPose, 'hard', isExclude = true);
+const expectHardStretch = levelFilter(stretchPose, 'hard');
 
 
 //リラクゼーション 30分 初心者
