@@ -1,4 +1,4 @@
-import yogaPoses from "./yogaPoses.js";
+import yogaPoses from "./yogaData.js";
 // 太陽礼拝1
 const suryaNamaskar1IDs = [
     "tadasana", "urdhva_hastasana", "uttanasana", "ardha_uttanasana",
