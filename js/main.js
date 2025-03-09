@@ -42,7 +42,7 @@ function renderSequence(arrayPose) {
         `<div class="result__pose">
             <div class="result__wrap">
                 <span class="result__num">${arrayindex + 1}</span>
-                <img src="images/image.png" alt="${poses.poseNameJP}">
+                <img src="images/image.png" alt="">
             </div>
             <p class="result__posejp">${poses.poseNameJP}</p>
             <p class="result__poseSanskrit">${poses.poseNameSanskrit}</p>
