@@ -1,4 +1,5 @@
 import Default from "./yogaData.js";
+console.log(yogaPoses);
 // 太陽礼拝1
 const suryaNamaskar1IDs = [
     "tadasana", "urdhva_hastasana", "uttanasana", "ardha_uttanasana",
