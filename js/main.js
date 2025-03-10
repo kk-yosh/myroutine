@@ -104,7 +104,7 @@ formMenu.addEventListener('submit', (e) => {
     if (formMenu.purpose.value === '筋トレあり' && formMenu.difficulty.value === '慣れた人' && formMenu.exerciseTime.value === '60分') {
         renderSequence(MuscleMedium60);
     }
-    // console.log(standMuscle3pose);
+    console.log(relaxBeginner30);
 // シークエンス表示ここまで
 });
 
