@@ -88,7 +88,7 @@ const savasana = yogaPoses.filter(poses => poses.id === "savasana");
 const expectSuryaNamaskar = yogaPoses.filter(pose => !pose.isSuryaNamaskar);
 
 // 上級ポーズ除外 easy medium
-const expectHard = levelFilter(expectSuryaNamaskar, 'hard');
+const expectHard = levelFilter(expectSuryaNamaskar, 'hard',true);
 // easyポーズのみ
 const easyPose = levelFilter(expectSuryaNamaskar, 'easy',false);
 // 中級ポーズのみ
@@ -98,13 +98,13 @@ const hardPose = levelFilter(expectSuryaNamaskar, 'hard',false);
 
 
 // 上級ポーズと筋トレポーズ除外
-const expectHardMuscle = purposeFilter(expectHard, 'muscleTraining');
+const expectHardMuscle = purposeFilter(expectHard, 'muscleTraining',true);
 
 // ストレッチ 全レベル
 const stretchPose = purposeFilter(expectSuryaNamaskar, 'stretch',false);
 
 // ストレッチ　ハード無し 
-const expectHardStretch = levelFilter(stretchPose, 'hard');
+const expectHardStretch = levelFilter(stretchPose, 'hard',true);
 
 
 //リラクゼーション 30分 初心者
