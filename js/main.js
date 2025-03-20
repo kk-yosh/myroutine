@@ -1,13 +1,13 @@
-import { suryaNamaskar1,
-    suryaNamaskar2,
-    relaxBeginner30,
-    relaxBeginner60,
-    relaxMedium30,
-    relaxMedium60,
-    Musclebeginner30,
-    Musclebeginner60,
-    MuscleMedium30,
-    MuscleMedium60 } from "./yoga.js";
+import {suryaNamaskar1,
+        suryaNamaskar2,
+        relaxBeginner30,
+        relaxBeginner60,
+        relaxMedium30,
+        relaxMedium60,
+        Musclebeginner30,
+        Musclebeginner60,
+        MuscleMedium30,
+        MuscleMedium60 } from "./yoga.js";
 const purposeRadio = document.querySelectorAll('input[name="purpose"]');
 const difficulty = document.getElementById('difficulty');
 const howMinute = document.getElementById('howMinute');
@@ -44,8 +44,10 @@ function renderSequence(arrayPose) {
                 <span class="result__num">${arrayindex + 1}</span>
                 <img src="images/image.png" alt="">
             </div>
-            <p class="result__posejp">${poses.poseNameJP}</p>
-            <p class="result__poseSanskrit">${poses.poseNameSanskrit}</p>
+            <hgroup>
+                <h3 class="result__posejp">${poses.poseNameJP}</h3>
+                <p class="result__poseSanskrit">${poses.poseNameSanskrit}</p>
+            </hgroup>
         </div>`
     });
 }
