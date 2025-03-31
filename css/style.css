@@ -109,13 +109,9 @@ textarea {
 
 /*************************************************
 **************************************************/
-html {
-  font-size: 62.5%;
-}
-
 body {
   font-family: "Sawarabi Gothic", "sans-serif";
-  font-size: 1.6rem;
+  font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
   color: var(--fontColor);
@@ -137,21 +133,21 @@ section {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: clamp(24px, 5vw, 36px);
   margin-bottom: 16px;
   text-align: center;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: clamp(20px, 4vw, 30px);
+  margin-bottom: 2em;
 }
 
 .text--explain {
-  font-size: 2rem;
+  font-size: clamp(14px, 2.5vw, 20px);
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .form {
@@ -189,9 +185,9 @@ h2 {
   padding: 0.5em 1em;
   box-sizing: border-box;
   font-size: 1.8rem;
-  background: var(--bg01);
-  color: var(--bg02);
-  border: solid 1px var(--bg02);
+  background: var(var(--bg01));
+  color: var(var(--bg02));
+  border: solid 1px var(var(--bg02));
   cursor: pointer;
 }
 .input--submit:hover {
@@ -255,10 +251,10 @@ h2 {
   height: auto;
 }
 .result__posejp {
-  font-size: 2.4rem;
+  font-size: clamp(20px, 4vw, 32px);
 }
 .result__poseSanskrit {
-  font-size: 1.6rem;
+  font-size: clamp(14px, 2.5vw, 22px);
   margin: 0;
 }
 .result__pose::after {
