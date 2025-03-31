@@ -115,7 +115,7 @@ h2 {
     }
 
     &--submit {
-        @include btn(var(--bg01), var(--bg02));
+        @include btn(--bg01, --bg02);
         &:hover {
             opacity: .6;
         }
