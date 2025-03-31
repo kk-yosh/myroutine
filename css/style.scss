@@ -38,13 +38,10 @@ $sp: 768px;
 }
 /*************************************************
 **************************************************/
-html {
-    font-size: 62.5%;
-}
 
 body {
     font-family: 'Sawarabi Gothic', 'sans-serif';
-    font-size: 1.6rem;
+    font-size: 1em;
     font-weight: 400;
     line-height: 1.5;
     color: var(--fontColor);
@@ -66,20 +63,20 @@ section {
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: clamp(24px, 5vw, 36px);
     margin-bottom: 16px;
     text-align: center;
     font-weight: bold;
 }
 h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: clamp(20px, 4vw, 30px);
+    margin-bottom: 2em;
 }
 .text {
     &--explain {
-        font-size: 2rem;
+        font-size: clamp(14px, 2.5vw, 20px);
         text-align: center;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
     }
 }
 .form {
@@ -114,7 +111,7 @@ h2 {
     }
 
     &--submit {
-        @include btn(--bg01,--bg02);
+        @include btn(var(--bg01), var(--bg02));
         &:hover {
             opacity: .6;
         }
@@ -169,10 +166,10 @@ h2 {
         height: auto;
     }
     &__posejp {
-        font-size: 2.4rem;
+        font-size: clamp(20px, 4vw, 32px);
     }
     &__poseSanskrit {
-        font-size: 1.6rem;
+        font-size: clamp(14px, 2.5vw, 22px);
         margin: 0;
     }
     &__pose::after {
