@@ -184,10 +184,10 @@ h2 {
   margin: 0 auto;
   padding: 0.5em 1em;
   box-sizing: border-box;
-  font-size: clamp(20px, 4vw, 30px);
-  background: var(var(--bg01));
-  color: var(var(--bg02));
-  border: solid 1px var(var(--bg02));
+  font-size: clamp(18px, 4vw, 24px);
+  background: var(--bg01);
+  color: var(--bg02);
+  border: solid 1px var(--bg02);
   cursor: pointer;
 }
 .input--submit:hover {
@@ -213,7 +213,7 @@ h2 {
   margin: 0 auto;
   padding: 0.5em 1em;
   box-sizing: border-box;
-  font-size: clamp(20px, 4vw, 30px);
+  font-size: clamp(18px, 4vw, 24px);
   background: var(--bg01);
   color: var(--bg02);
   border: solid 1px var(--bg02);
