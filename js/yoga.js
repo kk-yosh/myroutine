@@ -1,5 +1,4 @@
-import yogaPoses from "./yogaData.js";
-console.log(yogaPoses);
+// import yogaPoses from "./yogaData.js";
 // 太陽礼拝1
 const suryaNamaskar1IDs = [
     "tadasana", "urdhva_hastasana", "uttanasana", "ardha_uttanasana",
@@ -74,6 +73,7 @@ function levelFilter(array, level, isExclude) {
 function purposeFilter(array, purpose, isExclude) {
     return array.filter(arrayItems => isExclude ? arrayItems.purpose !== purpose : arrayItems.purpose === purpose)
 }
+
 
 
 // ダウンドッグ
@@ -206,15 +206,15 @@ sortTiming(standMuscleHard2pose);
 
 const MuscleMedium60 = sittingMuscleAlllevel3pose.concat(proneMuscleAlllevel2pose, downdog,  balasana, standMuscleMedium2pose, standMuscleHard2pose, lyingMuscleAlllevel2pose, savasana);
 
-export {
-    suryaNamaskar1,
-    suryaNamaskar2,
-    relaxBeginner30,
-    relaxBeginner60,
-    relaxMedium30,
-    relaxMedium60,
-    Musclebeginner30,
-    Musclebeginner60,
-    MuscleMedium30,
-    MuscleMedium60
-}
+// export {
+//     suryaNamaskar1,
+//     suryaNamaskar2,
+//     relaxBeginner30,
+//     relaxBeginner60,
+//     relaxMedium30,
+//     relaxMedium60,
+//     Musclebeginner30,
+//     Musclebeginner60,
+//     MuscleMedium30,
+//     MuscleMedium60
+// }

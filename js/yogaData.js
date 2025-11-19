@@ -1,3 +1,4 @@
+
 const yogaPoses = [
     // sitting
     {
@@ -366,4 +367,5 @@ const yogaPoses = [
         "id": "savasana"
     }
 ]
-export default yogaPoses;
+
+// export default yogaPoses;
