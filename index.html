@@ -12,87 +12,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
+<main class="wrap">
 <!-- 選択画面 -->
-<div class="wrap" id="pose_box">
+<div id="pose_box">
     <h1>今日のヨガ何する？</h1>
 
     <section>
-        <form class="form" id="form_menu">
-            <p class="text text--explain">ヨガはたくさんポーズがあって何をやるか迷いますよね。<br>
-                選択肢を選んでボタンを押すとおすすめ表示します。</p>
-            <p class="text text--explain">「リラクゼーション、筋トレあり」を押すと「難易度・時間」の選択肢が出てくるのでお好みで。</p>
-            <p class="text text--explain">「太陽礼拝1、太陽礼拝2」はヨガのラジオ体操のようなものでポーズが決まっています。「難易度・時間」の選択肢は出ないので「メニュー表示」を押してください。「太陽礼拝1」の方が簡単で「太陽礼拝2」の方が運動量があります。</p>
-            
 
-            <div class="form__item">
-                <h2>目的</h2>
-                <div class="radio__wrap" id="purpose">
-                    <div>
-                        <input class="input--radio" type="radio" name="purpose" id="purpose_1" value="リラクゼーション" required>
-                        <label class="form__choice" for="purpose_1">リラクゼーション</label>
-                    </div>
-                    <div>
-                        <input class="input--radio" type="radio" name="purpose" id="purpose_2" value="筋トレあり">
-                        <label class="form__choice" for="purpose_2">筋トレあり</label>
-                    </div>
-                    <div>
-                        <input class="input--radio" type="radio" name="purpose" id="SuryaNamaska_1" value="SuryaNamaska_1">
-                        <label class="form__choice" for="SuryaNamaska_1">太陽礼拝1</label>
-                    </div>
-                    <div>
-                        <input class="input--radio" type="radio" name="purpose" id="SuryaNamaska_2" value="SuryaNamaska_2">
-                        <label class="form__choice" for="SuryaNamaska_2">太陽礼拝2</label>
-                    </div>
-                </div>
+        <p class="text text--explain">ヨガはたくさんポーズがあって何をやるか迷いますよね。<br>選択肢を選ぶとポーズを表示します。<br>メニューを変えたい時は再度選択肢を押してください。</p>
+
+
+        <div class="select_contents bg-light-subtle text-center p-3 mb-3" id="purpose">
+            <h2 class="border-top pt-3 fw-bold mb-3">目的</h2>
+            <div class="select_btns">
+                <button class="btn btn-primary" data-question="1" onclick="recordSelection(1,1,this)">リラクゼーション</button>
+                <button class="btn btn-primary" data-question="1" onclick="recordSelection(1,2,this)">筋トレあり</button>
+                <button class="btn btn-primary" data-question="1" onclick="recordSelection(1,3,this)">太陽礼拝1</button>
+                <button class="btn btn-primary" data-question="1" onclick="recordSelection(1,4,this)">太陽礼拝2</button>
             </div>
+        </div>
 
-            <div class="form__item" id="difficulty">
-                <h2>難易度</h2>
-                <div class="radio__wrap">
-                    <div>
-                        <input class="input--radio" type="radio" name="difficulty" id="difficulty_1" value="初心者">
-                        <label class="form__choice" for="difficulty_1">初心者</label>
-                    </div>
-                    <div>
-                        <input class="input--radio" type="radio" name="difficulty" id="difficulty_2" value="慣れた人">
-                        <label class="form__choice" for="difficulty_2">慣れた人</label>
-                    </div>
-                </div>
+
+        <div class="select_contents bg-light-subtle text-center p-3 mb-3" id="difficulty">
+            <h2 class="border-top pt-3 fw-bold mb-3">難易度</h2>
+            <div class="select_btns">
+                <button class="btn btn-primary" data-question="2" onclick="recordSelection(2,1,this)">初心者</button>
+                <button class="btn btn-primary" data-question="2" onclick="recordSelection(2,2,this)">慣れた人</button>
             </div>
+        </div>
 
-            <div class="form__item" id="howMinute">
-                <h2>時間</h2>
-                <div class="radio__wrap">
-                    <div>
-                        <input class="input--radio" type="radio" name="exerciseTime" id="time_30" value="30分">
-                        <label class="form__choice" for="time_30">30分</label>
-                    </div>
-                    <div>
-                        <input class="input--radio" type="radio" name="exerciseTime" id="time_60" value="60分">
-                        <label class="form__choice" for="time_60">60分</label>
-                    </div>
-                </div>
+        <div class="select_contents bg-light-subtle text-center p-3 mb-3" id="time">
+            <h2 class="border-top pt-3 fw-bold  mb-3">時間</h2>
+            <div class="select_btns">
+                <button class="btn btn-primary" data-question="3" onclick="recordSelection(3,1,this)">30分</button>
+                <button class="btn btn-primary" data-question="3" onclick="recordSelection(3,2,this)">60分</button>
             </div>
-
-            <input class="input--submit" type="submit" value="メニュー表示">
-        </form>
-    </section>
-
-    <hr>
-    <section class="result">
-        <button class="result__reset-btn">表示リセット</button>
-        <h2>おすすめメニュー表示</h2>
-        <div class="result__pose-box">
         </div>
     </section>
-</div>
 
+    <section id="result" class="result select_contents">
+        <h2 class="text-center fw-bold border-top pt-3 mb-2">メニュー表示</h2>
+        <div class="result__pose"></div>
+    </section>
+</div>
+</main>
     <!-- JS -->
-    <script type="module" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/yogaData.js"></script>
+    <script src="js/yoga.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 
 </html>
