@@ -72,7 +72,6 @@ function recordSelection(questionKey, choiceID, button) {
     console.log(chosen);
 }
 
-// window.recordSelection = recordSelection;
 // ボタンの色と表示リセット
 function resetResult() {
     poseBox.innerHTML = "";
@@ -149,6 +148,7 @@ function moveBlock(destination) {
 
 //筋トレあり 60分 慣れた人 2 2 2
 // renderSequence(MuscleMedium60);
+
 
 
 
