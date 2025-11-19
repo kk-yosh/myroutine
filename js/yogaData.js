@@ -368,4 +368,5 @@ const yogaPoses = [
     }
 ]
 
-// export default yogaPoses;
+
+export default yogaPoses;
