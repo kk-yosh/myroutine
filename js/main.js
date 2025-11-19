@@ -1,3 +1,14 @@
+import { suryaNamaskar1,
+    suryaNamaskar2,
+    relaxBeginner30,
+    relaxBeginner60,
+    relaxMedium30,
+    relaxMedium60,
+    Musclebeginner30,
+    Musclebeginner60,
+    MuscleMedium30,
+    MuscleMedium60 } from "./yoga.js";
+
 const selectContents = document.querySelectorAll('.select_contents');
 const selectBtns = document.querySelectorAll('.select_btns button');
 const difficulty = document.getElementById('difficulty');
@@ -138,3 +149,4 @@ function moveBlock(destination) {
 
 //筋トレあり 60分 慣れた人 2 2 2
 // renderSequence(MuscleMedium60);
+
