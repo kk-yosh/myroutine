@@ -1,4 +1,4 @@
-// import yogaPoses from "./yogaData.js";
+import yogaPoses from "./yogaData.js";
 // 太陽礼拝1
 const suryaNamaskar1IDs = [
     "tadasana", "urdhva_hastasana", "uttanasana", "ardha_uttanasana",
@@ -217,4 +217,5 @@ const MuscleMedium60 = sittingMuscleAlllevel3pose.concat(proneMuscleAlllevel2pos
 //     Musclebeginner60,
 //     MuscleMedium30,
 //     MuscleMedium60
+
 // }
